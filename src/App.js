@@ -3,21 +3,16 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import "./App.css";
+
 import Home from "./Pages/Home";
 import Error from "./Pages/Error";
+import Body from "./components/Body";
+import Browse from "./components/Browse";
 
-const appRouter = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-    errorElement: <Error />,
-  },
-]);
 function App() {
   return (
     <div className="App">
-      <RouterProvider router={appRouter} />
+      <Body />
     </div>
   );
 }
