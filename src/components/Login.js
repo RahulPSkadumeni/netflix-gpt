@@ -1,14 +1,58 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Header from "./Header";
-
+import { checkValidData } from "../utils/validation";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
-  const [signIn, setSignIn] = useState(false);
+  const [signIn, setSignIn] = useState(true);
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const userName = useRef(null);
+  const navigate = useNavigate();
   const setupSignup = () => {
     setSignIn(!signIn);
+  };
+
+  const handleButtonClick = () => {
+    console.log(email.current.value);
+
+    console.log("handle button click");
+    const message = checkValidData(email.current.value, password.current.value);
+    console.log(message);
+    setErrorMessage(message);
+    toast(message, {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    if (message === true) {
+      navigate("/browse");
+    }
   };
   return (
     <div className="">
       <Header />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="absolute  ">
         <img
           src="https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/64774cd8-5c3a-4823-a0bb-1610d6971bd4/IN-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg"
@@ -26,7 +70,15 @@ const Login = () => {
               Sign Up
             </h1>
           )}
-          <form className=" flex flex-col ">
+          {errorMessage ? (
+            <h1 className="ml-5 font-semibold text-xl text-yellow-600 ">
+              Warning : {errorMessage}
+            </h1>
+          ) : null}
+          <form
+            onSubmit={(e) => e.preventDefault()}
+            className=" flex flex-col "
+          >
             {signIn ? (
               <div></div>
             ) : (
@@ -34,20 +86,26 @@ const Login = () => {
                 className="m-5 p-2 rounded-lg h-14 bg-gray-600  text-white text-xl"
                 type="text"
                 placeholder="User Name"
+                ref={userName}
               />
             )}
             <input
               className="m-5 p-2 rounded-lg h-14 bg-gray-600  text-white text-xl"
               type="text"
               placeholder="Email or phone number"
+              ref={email}
             />
             <input
               className="m-5 p-2 rounded-lg h-14 bg-gray-600  text-white text-xl"
               type="password"
               placeholder="Password"
+              ref={password}
             />
             {signIn ? (
-              <button className="bg-red-600 text-white m-5 p-2 rounded-lg h-14 font-bold text-xl ">
+              <button
+                className="bg-red-600 text-white m-5 p-2 rounded-lg h-14 font-bold text-xl "
+                onClick={handleButtonClick}
+              >
                 Sign In
               </button>
             ) : (
