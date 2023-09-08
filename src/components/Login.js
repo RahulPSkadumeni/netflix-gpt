@@ -4,6 +4,12 @@ import { checkValidData } from "../utils/validation";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 const Login = () => {
   const [signIn, setSignIn] = useState(true);
   // const [email, setEmail] = useState("");
@@ -18,6 +24,7 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
+    console.log("clikced");
     console.log(email.current.value);
 
     console.log("handle button click");
@@ -34,8 +41,55 @@ const Login = () => {
       progress: undefined,
       theme: "light",
     });
-    if (message === true) {
-      navigate("/browse");
+    console.log("first>>>>", message);
+    if (message) return;
+    console.log("second");
+    //create a  new user /sign up/sing in
+    //navigate("/browse");
+
+    if (!signIn) {
+      console.log(">>>second");
+      //sing up logic
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+          // ..
+        });
+    } else {
+      console.log("logins start here");
+      //signIn logic
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+          console.log(user);
+          if (user) {
+            navigate("/home");
+          }
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
+      console.log("login end here");
     }
   };
   return (
@@ -109,7 +163,10 @@ const Login = () => {
                 Sign In
               </button>
             ) : (
-              <button className="bg-red-600 text-white m-5 p-2 rounded-lg h-14 font-bold text-xl ">
+              <button
+                onClick={handleButtonClick}
+                className="bg-red-600 text-white m-5 p-2 rounded-lg h-14 font-bold text-xl "
+              >
                 Sign Up
               </button>
             )}
