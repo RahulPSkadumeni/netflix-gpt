@@ -76,3 +76,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - create signUp user account
 - Implement user SignIn
 - created Redux store with user slice
+  -created redux store ,userSlice
