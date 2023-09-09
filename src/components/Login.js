@@ -10,7 +10,10 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 const Login = () => {
+  const dispatch = useDispatch();
   const [signIn, setSignIn] = useState(true);
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
@@ -81,6 +84,7 @@ const Login = () => {
           // ...
           console.log(user);
           if (user) {
+            dispatch(addUser(user));
             navigate("/home");
           }
         })
