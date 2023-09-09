@@ -63,6 +63,7 @@ const Login = () => {
           const user = userCredential.user;
           console.log(user);
           // ...
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -84,8 +85,8 @@ const Login = () => {
           // ...
           console.log(user);
           if (user) {
-            dispatch(addUser(user));
-            navigate("/home");
+            // dispatch(addUser(user));
+            navigate("/browse");
           }
         })
         .catch((error) => {
