@@ -8,6 +8,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
@@ -51,7 +52,7 @@ const Login = () => {
     //navigate("/browse");
 
     if (!signIn) {
-      console.log(">>>second");
+      console.log(">>>=Sign Up ");
       //sing up logic
       createUserWithEmailAndPassword(
         auth,
@@ -61,9 +62,33 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          updateProfile(auth.currentUser, {
+            displayName: userName.current.value,
+            photoURL: "https://avatars.githubusercontent.com/u/110342996?v=4",
+          })
+            .then(() => {
+              console.log("Profile updated!");
+              const { uid, email, displayName, photoURL } = auth.currentUser;
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
+              navigate("/browse");
+              // ...
+            })
+            .catch((error) => {
+              // An error occurred
+              // ...
+              const errorCode = error.code;
+              const errorMessage = error.message;
+              setErrorMessage(errorCode + "-" + errorMessage);
+            });
           console.log(user);
           // ...
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
