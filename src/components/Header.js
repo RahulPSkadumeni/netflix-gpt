@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { removeUser } from "../utils/userSlice";
+import { addUser, removeUser } from "../utils/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -14,13 +14,38 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        navigate("/");
+        //removed navigate("/") because in header useEffect if user null it will navigate to "/"
       })
       .catch((error) => {
         // An error happened.
         navigate("/error");
       });
   };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in,
+
+        const { uid, email, displayName, photoURL } = user;
+        dispatch(
+          addUser({
+            uid: uid,
+            email: email,
+            displayName: displayName,
+            photoURL: photoURL,
+          })
+        );
+        // ...
+        navigate("/browse");
+      } else {
+        // User is signed out
+        console.log("remove user from store");
+        dispatch(removeUser());
+        navigate("/"); //header inside body, so navigate works, in every page , when user not present  redirect to the login page
+      }
+    });
+  }, []);
   return (
     <div className="w-full flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black z-10 ">
       <img
