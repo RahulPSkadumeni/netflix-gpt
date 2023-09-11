@@ -80,3 +80,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - implemented Sign Out
 - Updated profile with display name and profile picture
 - fetch movies from TMDB Movies
+- If the user is not logged, redirect to the login page and visa-versa;
+- unScribed to the onAuthStateChanged Callback
+-

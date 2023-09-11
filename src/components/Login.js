@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  getAuth,
+ 
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
-    console.log("clikced");
+    console.log("clicked");
     console.log(email.current.value);
 
     console.log("handle button click");
