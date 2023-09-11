@@ -85,5 +85,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Register in TMDB API ,create app, & get access token
 - Get data from TMDB npw playing movies list api 
 - adding movie data to store, create slice for movies
+- custom hooks for getting now playing movies &  reduce codes in browse component
 - 
 

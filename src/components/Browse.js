@@ -4,6 +4,8 @@ import { Api_options } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import {  addNowPlayingMovie } from "../utils/movieSlice";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import MainContainer from './MainContainer';
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
 
@@ -32,6 +34,23 @@ useNowPlayingMovies( )
   return (
     <div>
       <Header />
+      {/*      structure
+        //main video containerp
+                    // video background
+                    // movie inf0
+        //secondary  container
+             // diff movie list*n
+                  - cards *n
+
+
+
+             */
+             
+
+      }
+
+      <MainContainer/>
+      <SecondaryContainer/>
      
     </div>
   );
