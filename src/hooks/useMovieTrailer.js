@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux"
 import { Api_options } from "../utils/constants"
 
 const useMovieTrailer=(movie_id)=>{
-    console.log("first",movie_id)
+    
 const dispatch=useDispatch()
     const geMovieVideos= async()=>{
         const  data= await
@@ -12,7 +12,7 @@ const dispatch=useDispatch()
         const response=await data.json()
         const filterData=await response.results.filter((video)=>video.type === "Trailer")
        const trailer= filterData.length ?filterData[0]:response.result[0]
-       console.log("trailer",trailer.key)
+     
        dispatch(addTrailerVideo(trailer))
        }
        useEffect(() => {

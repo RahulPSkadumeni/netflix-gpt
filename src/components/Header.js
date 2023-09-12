@@ -41,7 +41,7 @@ const Header = () => {
         navigate("/browse");
       } else {
         // User is signed out
-        console.log("remove user from store");
+        
         dispatch(removeUser());
         navigate("/"); //header inside body, so navigate works, in every page , when user not present  redirect to the login page
       }
@@ -51,14 +51,14 @@ const Header = () => {
     return () => unSubscribe();
   },[]);
   return (
-    <div className="w-full flex justify-between absolute px-8 py-2 p-2 bg-gradient-to-tl from-black z-10 ">
+    <div className="w-full flex justify-between absolute px-8 py-2 bg-gradient-to-tl from-black z-10 ">
       <img className="ml-16 w-36" src={logo} alt="logo" />
       {user && (
         <div className="flex pr-2 text-center h-16  ">
           <div>
           
           {user.photoURL?(<img className="h-8 w-8 m-2" src={(user?.photoURL)} alt="" />):(<img className="h-12 w-12 m-3" src={userAvatar} alt="" />)}
-            <h4 className="text-white m-2">{(user?.displayName)}</h4>
+            {/* <h4 className="text-white m-2">{(user?.displayName)}</h4> */}
           </div>
           <button  className="bg-red-600 rounded-lg p-1 m-4 font-semibold text-white" onClick={handleSignOut}>
             Sign Out

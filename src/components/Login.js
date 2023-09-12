@@ -28,12 +28,11 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
-    console.log("clicked");
-    console.log(email.current.value);
+    
 
-    console.log("handle button click");
+   
     const message = checkValidData(email.current.value, password.current.value);
-    console.log(message);
+   
     setErrorMessage(message);
     toast(message, {
       position: "top-center",
@@ -45,14 +44,14 @@ const Login = () => {
       progress: undefined,
       theme: "light",
     });
-    console.log("first>>>>", message);
+   
     if (message) return;
-    console.log("second");
+   
     //create a  new user /sign up/sing in
     //navigate("/browse");
 
     if (!signIn) {
-      console.log(">>>=Sign Up ");
+     
       //sing up logic
       createUserWithEmailAndPassword(
         auth,
@@ -67,7 +66,7 @@ const Login = () => {
             photoURL: "https://avatars.githubusercontent.com/u/110342996?v=4",
           })
             .then(() => {
-              console.log("Profile updated!");
+            
               const { uid, email, displayName, photoURL } = auth.currentUser;
               dispatch(
                 addUser({
@@ -87,7 +86,7 @@ const Login = () => {
               const errorMessage = error.message;
               setErrorMessage(errorCode + "-" + errorMessage);
             });
-          console.log(user);
+          
           // ...
         })
         .catch((error) => {
@@ -97,7 +96,7 @@ const Login = () => {
           // ..
         });
     } else {
-      console.log("logins start here");
+    
       //signIn logic
       signInWithEmailAndPassword(
         auth,
@@ -119,7 +118,7 @@ const Login = () => {
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
         });
-      console.log("login end here");
+     
     }
   };
   return (
