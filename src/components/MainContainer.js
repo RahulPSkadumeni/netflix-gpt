@@ -8,10 +8,11 @@ const MainContainer = () => {
     if(movies==null)return //if movies is not present then return  or it cause error
     const mainMovie=movies[0]
   
-    const {original_title,overview}=mainMovie
+    const {original_title,overview,id}=mainMovie
+    console.log(id)
   return (
     <div>
-        <VideoBackground/>
+        <VideoBackground movie_id={id}/>
         <VideoTitle title={original_title} overview={overview}/>
     </div>
   )
