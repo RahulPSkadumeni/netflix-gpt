@@ -7,7 +7,7 @@ export const userAvatar="https://occ-0-7777-3663.1.nflxso.net/dnm/api/v6/K6hjPJd
 
 export const TMDB_Api="c198d8616557aa03eaa7002376a2601a"
 export const TMDB_accessToken="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTk4ZDg2MTY1NTdhYTAzZWFhNzAwMjM3NmEyNjAxYSIsInN1YiI6IjYzODhlM2ZlMWIxNTdkMDA4MjQ2ZjM4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5hscRKeaRUYBe6uMEjPLONhkosnnwjtwkrxp-ViKu_g"
-
+export const TMDB_Image_CDN="https://image.tmdb.org/t/p/w500/"
 
 export const Api_options = {
   method: 'GET',

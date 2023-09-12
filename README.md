@@ -86,5 +86,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Get data from TMDB npw playing movies list api 
 - adding movie data to store, create slice for movies
 - custom hooks for getting now playing movies &  reduce codes in browse component
-- 
+- planning for main container and secondary container 
+- fetching data for trailer and custom hook for that
+-embedded youtube video with auto  play 
+-
 
