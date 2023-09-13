@@ -93,6 +93,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - built movie list and  Movie card component
 - TMDB image cdn
 - added more category of movies list and custom hooks for that
+- Gpt search feature
+- button for search page
+- 
 
 
 

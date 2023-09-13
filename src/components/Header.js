@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { logo, userAvatar } from "../utils/constants";
+import {  toggleGptSearchButton } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -50,17 +51,23 @@ const Header = () => {
     // un Subscribe when component unmount
     return () => unSubscribe();
   },[]);
+
+ const  handleGptSearch=()=>{
+
+  dispatch(toggleGptSearchButton())
+ }
   return (
     <div className="w-full flex justify-between absolute px-8 py-2 bg-gradient-to-tl from-black z-10 ">
       <img className="ml-16 w-36" src={logo} alt="logo" />
       {user && (
         <div className="flex pr-2 text-center h-16  ">
+          <button className="py-2 px-4 font-semibold bg-orange-600 rounded-lg mx-4 mt-2 text-white" onClick={()=>handleGptSearch()}>GPT- Search</button>
           <div>
           
-          {user.photoURL?(<img className="h-8 w-8 m-2" src={(user?.photoURL)} alt="" />):(<img className="h-12 w-12 m-3" src={userAvatar} alt="" />)}
+          {user.photoURL?(<img className="h-14 w-14 rounded-lg  m-2" src={(user?.photoURL)} alt="" />):(<img className="h-14 w-14 rounded-lg  m-2" src={userAvatar} alt="" />)}
             {/* <h4 className="text-white m-2">{(user?.displayName)}</h4> */}
           </div>
-          <button  className="bg-red-600 rounded-lg p-1 m-4 font-semibold text-white" onClick={handleSignOut}>
+          <button  className="bg-red-600 font-semibold py-2 px-4 rounded-lg mx-4 mt-2 text-white" onClick={handleSignOut}>
             Sign Out
           </button>
         </div>
