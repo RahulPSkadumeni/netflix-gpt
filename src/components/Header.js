@@ -6,12 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { logo, userAvatar } from "../utils/constants";
 import {  toggleGptSearchButton } from "../utils/gptSlice";
+import { SupportedLanguages } from "../utils/languageConstants";
+import { changeLanguage } from "../utils/configSlice";
+import gptSlice from './../utils/gptSlice';
 
 const Header = () => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const gptSearch=useSelector((store)=>store.gpt.showGptSearch)
+  console.log("firstMMMMMMMMMMMMMMMMMM",gptSearch)
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -56,12 +60,23 @@ const Header = () => {
 
   dispatch(toggleGptSearchButton())
  }
+ const handleLanguage=(e)=>{
+  e.preventDefault()
+  dispatch(changeLanguage(e.target.value))
+  
+ }
   return (
     <div className="w-full flex justify-between absolute px-8 py-2 bg-gradient-to-tl from-black z-10 ">
       <img className="ml-16 w-36" src={logo} alt="logo" />
       {user && (
         <div className="flex pr-2 text-center h-16  ">
-          <button className="py-2 px-4 font-semibold bg-orange-600 rounded-lg mx-4 mt-2 text-white" onClick={()=>handleGptSearch()}>GPT- Search</button>
+         {gptSearch &&<select className=" p-2 mt-2  bg-gray-400 rounded-lg text-white " onChange={handleLanguage}>
+           
+           {SupportedLanguages?.map((SupportedLanguages)=>(
+            <option className=" text-white" key={SupportedLanguages.identifier} value={SupportedLanguages.identifier}>{SupportedLanguages.name}</option>))
+           }
+            </select>} 
+          <button className="py-2 px-4 font-semibold bg-orange-600 rounded-lg mx-4 mt-2 text-white" onClick={()=>handleGptSearch()}> {gptSearch?("Home Page"):  ("GPT- Search")}</button>
           <div>
           
           {user.photoURL?(<img className="h-14 w-14 rounded-lg  m-2" src={(user?.photoURL)} alt="" />):(<img className="h-14 w-14 rounded-lg  m-2" src={userAvatar} alt="" />)}

@@ -95,7 +95,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - added more category of movies list and custom hooks for that
 - Gpt search feature
 - button for search page
-- 
+- GPT-search Bar
+-
+- Multi language Feature
+- Integrate Open api 
+
 
 
 

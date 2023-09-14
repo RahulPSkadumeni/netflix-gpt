@@ -6,7 +6,8 @@ import {  addNowPlayingMovie } from "../utils/movieSlice";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from './MainContainer';
 import SecondaryContainer from "./SecondaryContainer";
-import GptSearch from "./GptSearch";
+
+import GptSearchPage from "./GptSearchPage";
 
 const Browse = () => {
 
@@ -49,7 +50,7 @@ useNowPlayingMovies( )
 
       {/* /* when click GPT Search button show GPT-search component otherwise main container and secondary container
       */ }
-     {isShowGptSearch ? (<GptSearch/>):
+     {isShowGptSearch ? (<GptSearchPage/>):
        (<><MainContainer/>
        <SecondaryContainer/></>)}
     

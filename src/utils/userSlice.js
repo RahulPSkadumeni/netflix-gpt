@@ -12,7 +12,10 @@ const userSlice = createSlice({
       return null;
     },
   },
-});
+  
+}
+
+);
 
 export default userSlice.reducer;
 export const { addUser, removeUser } = userSlice.actions;
