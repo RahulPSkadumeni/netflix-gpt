@@ -9,6 +9,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
+import SearchPage from "./SearchPage";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,12 @@ const Body = () => {
       element: <Home />,
       errorElement: <Error />,
     },
+    {
+      path: "/search",
+      element: <SearchPage/>,
+      errorElement: <Error />,
+    },
+    
   ]);
 
   return (

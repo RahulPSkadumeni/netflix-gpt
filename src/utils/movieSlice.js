@@ -9,6 +9,7 @@ const movieSlice=createSlice({
         topRatedMovies:null,
         upcomingMovies:null,
         airingToday:null
+        
     },
     reducers:{
         addNowPlayingMovie:(state,action)=>{
