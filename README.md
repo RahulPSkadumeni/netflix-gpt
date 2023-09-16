@@ -99,7 +99,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 -
 - Multi language Feature
 - Integrate Open api 
-
+- generated result from  gpt as per our input
+- used that as input for find movie information from TMDm
+- added both result  to  store using single action
+- updated UI with new results
+- re used component to show the movie result (movieList component)
+- 
 
 
 
