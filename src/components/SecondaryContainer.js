@@ -25,7 +25,7 @@ useUpcoming()
 useAiringToday()
   return (
    movies && (<div className=' bg-black  '>
-    <div className='-mt-72 relative z-10 '>
+    <div className='-mt-80 relative z-10 '>
       
       <MovieList  title={"Now Playing"} movies={movies.nowPlayingMovies}/>
     
