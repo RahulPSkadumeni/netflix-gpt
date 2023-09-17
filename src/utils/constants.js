@@ -18,4 +18,4 @@ export const Api_options = {
 };
 
 export const BackgroundImg="https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/64774cd8-5c3a-4823-a0bb-1610d6971bd4/IN-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-  export const openAI_Key="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"
+  export const openAI_Key="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"

@@ -137,14 +137,14 @@ const Login = () => {
         pauseOnHover
         theme="light"
       />
-      <div className="absolute  ">
-        <img
+      <div className="absolute">
+        <img className="w-screen h-screen object-cover"
           src={BackgroundImg}
           alt=""
         />
       </div>
       <div className="flex items-center justify-center h-screen">
-        <div className="relative  py-6 sm:py-12 flex flex-col w-1/3 bg-black bg-opacity-80 rounded-md  p-5 ">
+        <div className="relative w-full md:w-5/12 md:m-0 py-6 sm:py-12 flex flex-col  bg-black bg-opacity-80 rounded-md  p-5 ">
           {signIn ? (
             <h1 className="text-left  p-2 m-5 text-white text-4xl font-bold">
               Sign In

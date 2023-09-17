@@ -104,7 +104,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - added both result  to  store using single action
 - updated UI with new results
 - re used component to show the movie result (movieList component)
-- 
+- Add .env file for storing the secrets and api keys
+
 
 
 

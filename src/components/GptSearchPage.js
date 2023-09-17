@@ -13,14 +13,16 @@ const GptSearchPage = () => {
 */ 
   return (
     <div>
-        <div className="fixed -z-10  ">
-        <img
+        <div className="fixed  -z-10  ">
+        <img className='h-screen sm:w-screen object-cover'
           src={BackgroundImg}
           alt=""
         />
       </div >
+      <div className=''>
       <GptSearchBar/>
       <GptSuggestion/>
+      </div>
     </div>
   )
 }

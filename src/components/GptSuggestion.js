@@ -8,8 +8,8 @@ const GptSuggestion = () => {
   console.log(showGptSearch)
   if(!movieNames) {return <div className="text-center text-white p-2 font-semibold text-l" >Search Something.....</div>}
   return (
-    <div className='-mt-80 relative z-10 p-4 m-10  bg-black text-white  bg-opacity-90'>
-     <h1 className="text-center text-white p-2 font-semibold text-3xl">Suggested Movies</h1>
+    <div className='-mt-96 rounded-lg relative z-10 p-4 m-10  bg-black text-white  bg-opacity-90'>
+     <h1 className="text-center text-white p-2 font-semibold text-lg md:text-3xl">Suggested Movies</h1>
      <div >
     
       {movieNames.map((movieName,index)=>( 
