@@ -66,8 +66,8 @@ const Header = () => {
   
  }
   return (
-    <div className="w-screen flex flex-col md:flex-row justify-between absolute px-8 py-2 bg-gradient-to-tl from-black z-10 ">
-      <img className=" w-36 mx-auto md:mx-16 " src={logo} alt="logo" />
+    <div className="w-screen flex flex-col md:flex-row justify-between absolute px-8 py-2  bg-gradient-to-tl from-black z-10 ">
+      <img className=" w-44 mx-auto md:mx-16 " src={logo} alt="logo" />
       {user && (
         <div className="flex pr-2 text-center h-16   md:flex-row mx-auto ">
          {gptSearch &&<select className=" p-2 mt-2  bg-gray-400 rounded-lg text-white " onChange={handleLanguage}>
@@ -79,7 +79,7 @@ const Header = () => {
           <button className="py-2 px-4  font-semibold bg-orange-600 rounded-lg mx-4 mt-2 text-white" onClick={()=>handleGptSearch()}> {gptSearch?("Home Page"):  ("GPT- Search")}</button>
           <div>
           
-          {user.photoURL?(<img className=" object-cover w-14 h-14  rounded-lg mt-2" src={(user?.photoURL)} alt="" />):(<img className="w-16 h-16  rounded-lg mt-2 " src={userAvatar} alt="" />)}
+          {user.photoURL?(<img className=" object-cover hidden md:block w-14 h-14  rounded-lg mt-2" src={(user?.photoURL)} alt="" />):(<img className="w-16 h-16  rounded-lg mt-2 " src={userAvatar} alt="" />)}
             {/* <h4 className="text-white m-2">{(user?.displayName)}</h4> */}
           </div>
           <button  className="bg-red-600 font-semibold py-2 px-4 rounded-lg mx-4 mt-2 text-white" onClick={handleSignOut}>

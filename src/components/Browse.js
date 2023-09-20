@@ -36,7 +36,7 @@ console.log(isShowGptSearch)
 useNowPlayingMovies( )
 
   return (
-    <div  >
+    <div   >
       <Header />
       {/*      structure
         //main video containerp
@@ -50,7 +50,7 @@ useNowPlayingMovies( )
 
       {/* /* when click GPT Search button show GPT-search component otherwise main container and secondary container
       */ }
-      <div className="bg-black">
+      <div className="bg-black ">
      {isShowGptSearch ? (<GptSearchPage/>):
        (<><MainContainer/>
        <SecondaryContainer/></>)}

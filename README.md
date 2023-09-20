@@ -96,7 +96,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Gpt search feature
 - button for search page
 - GPT-search Bar
--
+- memoization for API call
+- fetched gpt movieSuggestion from tmdb
+- reused movie list component to make movie suggestion container
 - Multi language Feature
 - Integrate Open api 
 - generated result from  gpt as per our input
@@ -105,6 +107,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - updated UI with new results
 - re used component to show the movie result (movieList component)
 - Add .env file for storing the secrets and api keys
+- adding env to git ignore
+- made site responsive
+- changed favicon and title
 
 
 
