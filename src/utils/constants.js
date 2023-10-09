@@ -5,8 +5,8 @@ export const logo =
 export const userAvatar="https://occ-0-7777-3663.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABZBe7K0DPia9LvzIkQ4yzqX9NocZlAjS1MOyEuBQD1WmFuLKZwvq0bxc4n4_EV73khqgwed0PYLNml0V8LCymt31e7x-8jQ.png?r=229"
 
 
-export const TMDB_Api="c198d8616557aa03eaa7002376a2601a"
-export const TMDB_accessToken="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTk4ZDg2MTY1NTdhYTAzZWFhNzAwMjM3NmEyNjAxYSIsInN1YiI6IjYzODhlM2ZlMWIxNTdkMDA4MjQ2ZjM4YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5hscRKeaRUYBe6uMEjPLONhkosnnwjtwkrxp-ViKu_g"
+export const TMDB_Api=process.env.REACT_APP_TMDB_Api
+export const TMDB_accessToken=process.env.REACT_APP_TMDB_accessToken
 export const TMDB_Image_CDN="https://image.tmdb.org/t/p/w500/"
 
 export const Api_options = {
@@ -18,4 +18,4 @@ export const Api_options = {
 };
 
 export const BackgroundImg="https://assets.nflxext.com/ffe/siteui/vlv3/00103100-5b45-4d4f-af32-342649f1bda5/64774cd8-5c3a-4823-a0bb-1610d6971bd4/IN-en-20230821-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-  export const openAI_Key="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"
+  

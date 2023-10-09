@@ -24,7 +24,7 @@ const GptSearchPage = () => {
       <GptSuggestion/>
       </div>
     </div>
-  )
+  ) 
 }
 
 export default GptSearchPage
