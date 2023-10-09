@@ -113,4 +113,26 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
+## Screen Shots
+Firebase secured login with validation
+![Alt text](image.png)
 
+Home Page
+
+![Alt text](image-1.png)
+
+Different Category
+
+![Alt text](image-2.png)
+
+ Multi language Feature
+
+![Alt text](image-3.png)
+
+Chat GPT suggested movies list
+
+![Alt text](image-4.png)
+
+
+Responsive Design
+![Alt text](image-5.png)
